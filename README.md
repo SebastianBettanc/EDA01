@@ -1,4 +1,7 @@
 # EDA01
+Nombre:Sebastian Bettancourt Villaseca
+Rut:19341715-9
+
 Estructura de datos y algoritmos avanzados , Problema 1 TSP
 
 Instrucciones para instalar
