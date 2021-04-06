@@ -110,6 +110,7 @@ def SearchAst(Map,Ini,End,LDist,EdgeList): #Busca el camino mas corto entre Curr
   Trayecto=0
   Edge=None
   Next=None
+  Previous=None
 
   while True:
     
@@ -123,7 +124,7 @@ def SearchAst(Map,Ini,End,LDist,EdgeList): #Busca el camino mas corto entre Curr
 
       weight=Map.edges[Current,Neighbors[x]]['weight']
       KNext=weight+Distance(End,Neighbors[x])
-      
+
 
       
       if KNext<=Dtn and Neighbors[x] not in Path: #Se cumple la condicion si el camino es mas corto que el anterior y no esta en la lista de nodos ya visitados
@@ -132,6 +133,7 @@ def SearchAst(Map,Ini,End,LDist,EdgeList): #Busca el camino mas corto entre Curr
         Edge=(Current,Neighbors[x]) #Guarda el camino entre nodoA y nodoB adyacente a el
         EdgeW=(Neighbors[x],Current)
         
+    Previous=Current    
     Current=Next    
     Trayecto+=Dtn
     EdgeList.append(Edge)
@@ -152,17 +154,17 @@ def SearchAst(Map,Ini,End,LDist,EdgeList): #Busca el camino mas corto entre Curr
 def ListCity (Map):#Ciudades en el mapa predefinidas en el codigo para testear (sin input de usuario para testeo) #Retorna una lista con todos los nodos
   L=list()
 
-  pushback(L,"Santiago",152,105,Map) #X
-  pushback(L,"Valparaiso",20,130,Map) #x
-  pushback(L,"San Antonio",20,20,Map) #x 
-  pushback(L,"Villa Alemana",55,130,Map) #x
-  pushback(L,"Melipilla",90,5,Map)# x
-  pushback(L,"Con con",32,160,Map)# X
-  pushback(L,"Quilpue",44,130,Map)#X
-  pushback(L,"Quillota",65,165,Map)#X
-  pushback(L,"Quintero",34,180,Map)#X
-  pushback(L,"Algarrobo",18,70,Map)#X
-  pushback(L,"Casa Blanca",45,77,Map)#X
+  pushback(L,"Santiago",152,105,Map) #X0
+  pushback(L,"Valparaiso",20,130,Map) #x1
+  pushback(L,"San Antonio",20,20,Map) #x 2
+  pushback(L,"Villa Alemana",55,130,Map) #x3
+  pushback(L,"Melipilla",90,5,Map)# x4
+  pushback(L,"Con con",32,160,Map)# X5
+  pushback(L,"Quilpue",44,130,Map)#X6
+  pushback(L,"Quillota",65,165,Map)#X7
+  pushback(L,"Quintero",34,180,Map)#X8
+  pushback(L,"Algarrobo",18,70,Map)#X9
+  pushback(L,"Casa Blanca",45,77,Map)#X10
   pushback(L,"Curacavi",90,60,Map)#x
   pushback(L,"Puchuncavi",40,200,Map)#X
   pushback(L,"Maintencillo",41,220,Map)#x
@@ -195,36 +197,37 @@ def ListEdges(L):#Conexiones de ciudades predefinidas en el codigo para testear 
   ############################################################################ DEFINICIONES #######################################################################################
   #################################################################################################################################################################################
 
-  Santiago=L[0]
-  Valpo=L[1]
-  SanAntonio=L[2]
-  VillaAlemana=L[3]
-  Melipilla=L[4]
-  ConCon=L[5]
-  Quilpue=L[6]
-  Quillota=L[7]
-  Quintero=L[8]
-  Algarrobo=L[9]
-  CasaBlanca=L[10]
-  Curacavi=L[11]
-  Puchuncavi=L[12]
-  Maintencillo=L[13]
-  Nogales=L[14]
-  Catapilco=L[15]
-  Calera=L[16]
-  Llay=L[17]
-  Felipe=L[18]
-  Andes=L[19]
+  Santiago=L[0]#
+  Valpo=L[1]#
+  SanAntonio=L[2]#
+  VillaAlemana=L[3]#
+  Melipilla=L[4]#
+  ConCon=L[5]#
+  Quilpue=L[6]#
+  Quillota=L[7]#
+  Quintero=L[8]#
+  Algarrobo=L[9]#
+  CasaBlanca=L[10]#
+  Curacavi=L[11]#
+  Puchuncavi=L[12]#
+  Maintencillo=L[13]#
+  Nogales=L[14]#
+  Catapilco=L[15]#
+  Calera=L[16]#
+  Llay=L[17]#
+  Felipe=L[18]#
+  Andes=L[19]#
   Larga=L[20]
-  Cumbre=L[21]
-  Runge=L[22]
-  Tabo=L[23]
-  Vina=L[24]
-  Flor=L[25]
-  Monte=L[26]
-  Lolenco=L[27]
-  Cartagena=L[28]
-  Leyda=L[29]
+  Cumbre=L[21]#
+  Runge=L[22]#
+  Tabo=L[23]#
+  Vina=L[24]#
+  Flor=L[25]#
+  Monte=L[26]#
+  Lolenco=L[27]#
+  Cartagena=L[28]#
+
+  Leyda=L[29]#
   Pange=L[30]
   Orozco=L[31]
   Placilla=L[32]
@@ -234,110 +237,181 @@ def ListEdges(L):#Conexiones de ciudades predefinidas en el codigo para testear 
   ############################################################################ VECINOS PRECONFIGURADO #############################################################################
   #################################################################################################################################################################################
 
-  NRosa=list()
-  NRosa.append(Curacavi)
+  NSantiago=list()  #vecinos santiago
+  NSantiago.append(Larga)
+  NSantiago.append(Runge)
+  NSantiago.append(Flor)
 
-  NOrozco=list()
-  NOrozco.append(CasaBlanca)
-  NOrozco.append(Placilla)
+  NValpo=list() #vecinos valpo
+  NValpo.append(Vina)
+  NValpo.append(Placilla)
+
+  NAntonio=list() #vecinos San Antonio
+  NAntonio.append(Cartagena)
+
+  NVilla=list() #Vecinos Villa Alemana
+  NVilla.append(Quillota)
+  NVilla.append(Quilpue)
+
+  NMelipilla=list() #Vecinos Melipilla
+  NMelipilla.append(Pange)
+  NMelipilla.append(Monte)
+
+  NConC=list() #Vecinos Concon
+  NConC.append(Quilpue)
+  NConC.append(Vina)
+  NConC.append(Quillota) 
+
+  NQuil=list() #Vecinos Quilpue 
+  NQuil.append(VillaAlemana)
+  NQuil.append(Vina)
+  NQuil.append(Orozco)
+
+  NQuillota=list() #Vecinos Quillota
+  NQuillota.append(Calera)
+  NQuillota.append(ConCon)
+  NQuillota.append(VillaAlemana)
+
+  NQuintero=list() #Vecinos Quintero
+  NQuintero.append(ConCon)
+  NQuintero.append(Puchuncavi)
+
+  NAlgarrobo=list()#Vecinos Algarrobo
+  NAlgarrobo.append(Tabo)
+  NAlgarrobo.append(CasaBlanca)
+
+  NCasa=list() #Vecinos Casa Blanca
+  NCasa.append(Algarrobo)
+  NCasa.append(Orozco)
+  NCasa.append(Rosa)
+
+  NCuracavi=list()#Vecinos Curacavi
+  NCuracavi.append(Rosa)
+  NCuracavi.append(Lolenco)
+
+  NPuchunca=list()#Vecinos Puchuncavi
+  NPuchunca.append(Maintencillo)
+  NPuchunca.append(Nogales)
+  NPuchunca.append(Quintero)
+
+  NMaintencillo=list()#Vecinos Maintencillo
+  NMaintencillo.append(Puchuncavi)
+  NMaintencillo.append(Catapilco)
+
+  NNogales=list()#Vecinos Nogales
+  NNogales.append(Calera)
+  NNogales.append(Puchuncavi)
+  NNogales.append(Catapilco)
+
+  NCatapilco=list()#Vecinos Catapilco
+  NCatapilco.append(Maintencillo)
+  NCatapilco.append(Nogales)
+
+  NCalera=list()#Vecino Calera
+  NCalera.append(Nogales)
+  NCalera.append(Llay)
+  NCalera.append(Quillota)
+
+  NLlay=list()#Vecinos Llay Llay
+  NLlay.append(Cumbre)
+  NLlay.append(Felipe)
+  NLlay.append(Calera)
+
+  NFelipe=list()#Vecinos San Felipe
+  NFelipe.append(Andes)
+  NFelipe.append(Llay)
+
+  NAndes=list() #Vecino Andes
+  NAndes.append(Larga)
+  NAndes.append(Felipe)
+
+  NLarga=list()
+  NLarga.append(Andes)
+  NLarga.append(Santiago)
+
+  NCumbre=list()
+  NCumbre.append(Runge)
+  NCumbre.append(Llay)
+
+  NRunge=list()
+  NRunge.append(Santiago)
+  NRunge.append(Cumbre)
+
+  NTabo=list()
+  NTabo.append(Algarrobo)
+  NTabo.append(Cartagena)
+
+  NVina=list()
+  NVina.append(Quilpue)
+  NVina.append(ConCon)
+  NVina.append(Placilla)
+  NVina.append(Valpo)
+
+  NFlor=list()
+  NFlor.append(Monte)
+  NFlor.append(Santiago)
+
+  NMonte=list()
+  NMonte.append(Flor)
+  NMonte.append(Melipilla)
+
+  NLolenco=list()
+  NLolenco.append(Curacavi)
+  NLolenco.append(Santiago)
 
   NCartagena=list()
   NCartagena.append(SanAntonio)
   NCartagena.append(Tabo)
   NCartagena.append(Leyda)
 
-  NAlgarrobo=list()
-  NAlgarrobo.append(Tabo)
-
-  NLolenco=list()
-  NLolenco.append(Curacavi)
-  NLolenco.append(Santiago)
-
-  NSan=list()
-  NSan.append(Larga)
-  NSan.append(Runge)
-  NSan.append(Flor)
-
-  NMonte=list()
-  NMonte.append(Flor)
-  NMonte.append(Melipilla)
-
-  NVal=list()  
-  NVal.append(Vina)
-
-  NConC=list() 
-  NConC.append(Quilpue)
-  NConC.append(Vina)
-  NConC.append(Quillota) 
-
-  NQuil=list() 
-  NQuil.append(VillaAlemana)
-  NQuil.append(Vina)
-  NQuil.append(Orozco)
-
-  NVilla=list()
-  NVilla.append(Quillota)
-
-  NQuintero=list()
-  NQuintero.append(ConCon)
-  NQuintero.append(Puchuncavi)
-
-  NCasa=list()
-  NCasa.append(Algarrobo)
-  NCasa.append(Orozco)
-  NCasa.append(Rosa)
-
-  NPuchunca=list()
-  NPuchunca.append(Maintencillo)
-  NPuchunca.append(Nogales)
-
-  NCatapilco=list()
-  NCatapilco.append(Maintencillo)
-  NCatapilco.append(Nogales)
-
-  NCalera=list()
-  NCalera.append(Nogales)
-  NCalera.append(Llay)
-  NCalera.append(Quillota)
-
-  NVina=list()
-  NVina.append(Quilpue)
-  NVina.append(ConCon)
-  NVina.append(Placilla)
+  NLeyda=list()
+  NLeyda.append(Cartagena)
+  NLeyda.append(Pange)
 
   NPange=list()
   NPange.append(Melipilla)
   NPange.append(Leyda)
+  
+  NRosa=list()
+  NRosa.append(Curacavi)
+  NRosa.append(CasaBlanca)
 
-  NLlay=list()
-  NLlay.append(Cumbre)
-  NLlay.append(Felipe)
-
-  NCumbre=list()
-  NCumbre.append(Runge)
-
-  NAndes=list()
-  NAndes.append(Larga)
-  NAndes.append(Felipe)
+  NOrozco=list()
+  NOrozco.append(CasaBlanca)
+  NOrozco.append(Placilla)
+  NOrozco.append(Quilpue)
 
   NPlacilla=list()
   NPlacilla.append(Valpo)
   NPlacilla.append(Vina)
+  NPlacilla.append(Orozco)
 
   #################################################################################################################################################################################
   ############################################################################ Creacion Camino ####################################################################################
   #################################################################################################################################################################################
 
+
   Edges(Map,VillaAlemana,NVilla)  
-  Edges(Map,Santiago,NSan)  # Crea relaciones con peso entre NodoA y una lista de Nodos cercanos (neighbourhood), Santiago #Conce#Rancagua
-  Edges(Map,Valpo,NVal)
-  Edges(Map,Algarrobo,NAlgarrobo)
+  Edges(Map,Santiago,NSantiago)  # Crea relaciones con peso entre NodoA y una lista de Nodos cercanos (neighbourhood), Santiago #Conce#Rancagua
+  Edges(Map,Valpo,NValpo)
+  Edges(Map,SanAntonio,NAntonio)
+  Edges(Map,Melipilla,NMelipilla)
   Edges(Map,ConCon,NConC)
   Edges(Map,Quilpue,NQuil)
+  Edges(Map,Quillota,NQuillota)
+  Edges(Map,Algarrobo,NAlgarrobo)
   Edges(Map,Quintero,NQuintero)
   Edges(Map,CasaBlanca,NCasa)
+  Edges(Map,Curacavi,NCuracavi)
   Edges(Map,Puchuncavi,NPuchunca)
+  Edges(Map,Maintencillo,NMaintencillo)
+  Edges(Map,Nogales,NNogales)
   Edges(Map,Catapilco,NCatapilco)
+  Edges(Map,Felipe,NFelipe)
+  Edges(Map,Larga,NLarga)
+  Edges(Map,Runge,NRunge)
+  Edges(Map,Tabo,NTabo)
+  Edges(Map,Flor,NFlor)
   Edges(Map,Calera,NCalera)
   Edges(Map,Cartagena,NCartagena)
   Edges(Map,Vina,NVina)
@@ -345,6 +419,7 @@ def ListEdges(L):#Conexiones de ciudades predefinidas en el codigo para testear 
   Edges(Map,Andes,NAndes)
   Edges(Map,Cumbre,NCumbre)
   Edges(Map,Monte,NMonte)
+  Edges(Map,Leyda,NLeyda)
   Edges(Map,Lolenco,NLolenco)
   Edges(Map,Pange,NPange)
   Edges(Map,Placilla,NPlacilla)
@@ -414,7 +489,7 @@ Map= nx.Graph() #crea el mapa de la ciudad
 L=ListCity(Map) #Inserta los nodos en la posx,y del mapa (sin conexiones) y retorna una lista con todos los nodos
 ListEdges(L) #Crea las conexiones entre nodos
 Current=L[2] #San Antonio
-End=L[3] #Villa Alemana 3 , QUILLOTA 7
+End=L[5] #Villa Alemana 3 , QUILLOTA 7 # Santiago 0
 DistEu= Distance(Current,End) #Distancia directa entre los 2 nodos ignorando el camino (se utiliza para bsg en calculos posteriores)
 
 #Path=Path_greed(Map,Current,End,G,E) #Lista con las ciudeades recorridas por el algoritmo greed dado un nodo inicial y un final, reemplazar este algoritmo con BFS u otros (?
