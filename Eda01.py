@@ -154,40 +154,40 @@ def SearchAst(Map,Ini,End,LDist,EdgeList): #Busca el camino mas corto entre Curr
 def ListCity (Map):#Ciudades en el mapa predefinidas en el codigo para testear (sin input de usuario para testeo) #Retorna una lista con todos los nodos
   L=list()
 
-  pushback(L,"Santiago",152,105,Map) #X0
-  pushback(L,"Valparaiso",20,130,Map) #x1
-  pushback(L,"San Antonio",20,20,Map) #x 2
-  pushback(L,"Villa Alemana",55,130,Map) #x3
-  pushback(L,"Melipilla",90,5,Map)# x4
-  pushback(L,"Con con",32,160,Map)# X5
-  pushback(L,"Quilpue",44,130,Map)#X6
-  pushback(L,"Quillota",65,165,Map)#X7
-  pushback(L,"Quintero",34,180,Map)#X8
-  pushback(L,"Algarrobo",18,70,Map)#X9
-  pushback(L,"Casa Blanca",45,77,Map)#X10
-  pushback(L,"Curacavi",90,60,Map)#x
-  pushback(L,"Puchuncavi",40,200,Map)#X
-  pushback(L,"Maintencillo",41,220,Map)#x
-  pushback(L,"Nogales",65,190,Map)#X
-  pushback(L,"Catapilco",60,235,Map)#X
-  pushback(L,"La Calera",67,175,Map)#X
-  pushback(L,"Llay Llay",120,165,Map)#X
-  pushback(L,"San Felipe",150,175,Map)#X
-  pushback(L,"Los Andes",160,160,Map)#x
-  pushback(L,"Calle Larga",155,145,Map)#x
-  pushback(L,"La Cumbre",140,157,Map)#x
-  pushback(L,"Rungue",140,140,Map)#x
-  pushback(L,"El Tabo",20,50,Map)#x
-  pushback(L,"Vina Del Mar",30,135,Map)#X
-  pushback(L,"Penaflor",130,30,Map)#X
-  pushback(L,"El Monte",110,10,Map)#X
-  pushback(L,"Lolenco",110,60,Map)#X 
-  pushback(L,"Cartagena",23,25,Map)#X
-  pushback(L,"Leyda",50,30,Map)#X
-  pushback(L,"Puangue",60,20,Map)#X
-  pushback(L,"Lo Orozco",40,90,Map)#X
-  pushback(L,"Placilla",35,105,Map)#X
-  pushback(L,"Las Rosas",80,62,Map)#X   
+  pushback(L,"Santiago",152,105,Map) 
+  pushback(L,"Valparaiso",20,130,Map)
+  pushback(L,"San Antonio",20,20,Map)
+  pushback(L,"Villa Alemana",55,130,Map) 
+  pushback(L,"Melipilla",90,5,Map)
+  pushback(L,"Con con",32,160,Map)
+  pushback(L,"Quilpue",44,130,Map)
+  pushback(L,"Quillota",65,165,Map)
+  pushback(L,"Quintero",34,180,Map)
+  pushback(L,"Algarrobo",18,70,Map)
+  pushback(L,"Casa Blanca",45,77,Map)
+  pushback(L,"Curacavi",90,60,Map)
+  pushback(L,"Puchuncavi",40,200,Map)
+  pushback(L,"Maintencillo",41,220,Map)
+  pushback(L,"Nogales",65,190,Map)
+  pushback(L,"Catapilco",60,235,Map)
+  pushback(L,"La Calera",67,175,Map)
+  pushback(L,"Llay Llay",120,165,Map)
+  pushback(L,"San Felipe",150,175,Map)
+  pushback(L,"Los Andes",160,160,Map)
+  pushback(L,"Calle Larga",155,145,Map)
+  pushback(L,"La Cumbre",140,157,Map)
+  pushback(L,"Rungue",140,140,Map)
+  pushback(L,"El Tabo",20,50,Map)
+  pushback(L,"Vina Del Mar",30,135,Map)
+  pushback(L,"Penaflor",130,30,Map)
+  pushback(L,"El Monte",110,10,Map)
+  pushback(L,"Lolenco",110,60,Map)
+  pushback(L,"Cartagena",23,25,Map)
+  pushback(L,"Leyda",50,30,Map)
+  pushback(L,"Puangue",60,20,Map)
+  pushback(L,"Lo Orozco",40,90,Map)
+  pushback(L,"Placilla",35,105,Map)
+  pushback(L,"Las Rosas",80,62,Map)
 
   return L
 
@@ -197,37 +197,36 @@ def ListEdges(L):#Conexiones de ciudades predefinidas en el codigo para testear 
   ############################################################################ DEFINICIONES #######################################################################################
   #################################################################################################################################################################################
 
-  Santiago=L[0]#
-  Valpo=L[1]#
-  SanAntonio=L[2]#
-  VillaAlemana=L[3]#
-  Melipilla=L[4]#
-  ConCon=L[5]#
-  Quilpue=L[6]#
-  Quillota=L[7]#
-  Quintero=L[8]#
-  Algarrobo=L[9]#
-  CasaBlanca=L[10]#
-  Curacavi=L[11]#
-  Puchuncavi=L[12]#
-  Maintencillo=L[13]#
-  Nogales=L[14]#
-  Catapilco=L[15]#
-  Calera=L[16]#
-  Llay=L[17]#
-  Felipe=L[18]#
-  Andes=L[19]#
+  Santiago=L[0]
+  Valpo=L[1]
+  SanAntonio=L[2]
+  VillaAlemana=L[3]
+  Melipilla=L[4]
+  ConCon=L[5]
+  Quilpue=L[6]
+  Quillota=L[7]
+  Quintero=L[8]
+  Algarrobo=L[9]
+  CasaBlanca=L[10]
+  Curacavi=L[11]
+  Puchuncavi=L[12]
+  Maintencillo=L[13]
+  Nogales=L[14]
+  Catapilco=L[15]
+  Calera=L[16]
+  Llay=L[17]
+  Felipe=L[18]
+  Andes=L[19]
   Larga=L[20]
-  Cumbre=L[21]#
-  Runge=L[22]#
-  Tabo=L[23]#
-  Vina=L[24]#
-  Flor=L[25]#
-  Monte=L[26]#
-  Lolenco=L[27]#
-  Cartagena=L[28]#
-
-  Leyda=L[29]#
+  Cumbre=L[21]
+  Runge=L[22]
+  Tabo=L[23]
+  Vina=L[24]
+  Flor=L[25]
+  Monte=L[26]
+  Lolenco=L[27]
+  Cartagena=L[28]
+  Leyda=L[29]
   Pange=L[30]
   Orozco=L[31]
   Placilla=L[32]
@@ -489,7 +488,7 @@ Map= nx.Graph() #crea el mapa de la ciudad
 L=ListCity(Map) #Inserta los nodos en la posx,y del mapa (sin conexiones) y retorna una lista con todos los nodos
 ListEdges(L) #Crea las conexiones entre nodos
 Current=L[2] #San Antonio
-End=L[5] #Villa Alemana 3 , QUILLOTA 7 # Santiago 0
+End=L[14] #Villa Alemana 3 , QUILLOTA 7 # Santiago 0
 DistEu= Distance(Current,End) #Distancia directa entre los 2 nodos ignorando el camino (se utiliza para bsg en calculos posteriores)
 
 #Path=Path_greed(Map,Current,End,G,E) #Lista con las ciudeades recorridas por el algoritmo greed dado un nodo inicial y un final, reemplazar este algoritmo con BFS u otros (?
