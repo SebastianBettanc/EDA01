@@ -17,3 +17,6 @@ Installar libreria matplotlib.
 pip install matplotib
 
 Correr el archivo EDA01.py
+
+
+VIDEO EXPLICATIVO !!! = https://youtu.be/FCClXIzyHYE
